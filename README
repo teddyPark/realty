@@ -1,0 +1,288 @@
+HIVE query
+---------------------------------------------------------------------------
+
+CREATE TABLE `apartment_trade`(
+  `jicode` string, 
+  `price` string, 
+  `build_year` string, 
+  `trade_year` string, 
+  `trade_month` string, 
+  `trade_day` string, 
+  `street_addr_1` string, 
+  `street_addr_2` string, 
+  `street_addr_3` string, 
+  `dong_addr_1` string, 
+  `dong_addr_2` string, 
+  `dong_addr_3` string, 
+  `jibun` string, 
+  `apart_nm` string, 
+  `apart_floor` string, 
+  `apart_size` string)
+COMMENT 'Data about apartment trade history'
+PARTITIONED BY ( 
+  `trade_ym` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
+WITH SERDEPROPERTIES ( 
+  'field.delim'=',',
+  'quoteChar'='\"',
+  'serialization.format'=',') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://metatron-cluster/user/hive/warehouse/realty.db/apartment_trade'
+TBLPROPERTIES (
+  'last_modified_by'='metatron', 
+  'last_modified_time'='1547164435', 
+  'skip.header.line.count'='1', 
+  'transient_lastDdlTime'='1547164435')
+
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201101/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201101);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201102/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201102);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201103/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201103);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201104/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201104);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201105/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201105);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201106/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201106);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201107/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201107);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201108/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201108);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201109/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201109);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201110/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201110);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201111/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201111);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201112/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201112);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201201/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201201);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201202/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201202);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201203/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201203);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201204/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201204);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201205/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201205);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201206/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201206);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201207/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201207);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201208/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201208);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201209/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201209);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201210/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201210);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201211/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201211);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201212/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201212);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201301/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201301);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201302/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201302);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201303/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201303);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201304/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201304);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201305/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201305);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201306/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201306);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201307/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201307);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201308/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201308);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201309/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201309);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201310/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201310);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201311/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201311);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201312/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201312);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201401/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201401);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201402/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201402);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201403/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201403);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201404/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201404);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201405/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201405);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201406/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201406);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201407/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201407);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201408/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201408);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201409/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201409);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201410/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201410);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201411/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201411);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201412/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201412);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201501/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201501);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201502/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201502);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201503/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201503);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201504/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201504);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201505/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201505);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201506/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201506);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201507/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201507);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201508/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201508);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201509/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201509);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201510/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201510);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201511/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201511);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201512/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201512);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201601/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201601);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201602/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201602);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201603/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201603);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201604/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201604);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201605/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201605);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201606/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201606);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201607/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201607);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201608/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201608);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201609/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201609);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201610/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201610);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201611/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201611);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201612/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201612);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201701/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201701);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201702/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201702);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201703/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201703);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201704/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201704);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201705/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201705);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201706/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201706);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201707/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201707);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201708/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201708);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201709/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201709);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201710/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201710);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201711/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201711);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201712/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201712);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201801/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201801);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201802/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201802);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201803/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201803);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201804/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201804);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201805/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201805);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201806/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201806);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201807/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201807);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201808/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201808);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201809/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201809);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201810/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201810);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201811/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201811);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201812/apartment_trade.csv' INTO TABLE realty.apartment_trade PARTITION(trade_ym=201812);
+
+
+CREATE TABLE `apartment_rent`(
+  `jicode` string, 
+  `deposit` string, 
+  `monthlypay` string, 
+  `build_year` string,
+  `trade_year` string,
+  `trade_month` string, 
+  `trade_day` string, 
+  `street_addr_1` string, 
+  `street_addr_2` string, 
+  `street_addr_3` string, 
+  `dong_addr_1` string, 
+  `dong_addr_2` string, 
+  `dong_addr_3` string, 
+  `jibun` string, 
+  `apart_nm` string, 
+  `apart_floor` string, 
+  `apart_size` string)
+COMMENT 'Data about apartment rent history'
+PARTITIONED BY ( 
+  `trade_ym` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
+WITH SERDEPROPERTIES ( 
+  'field.delim'=',',
+  'quoteChar'='\"',
+  'serialization.format'=',') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://metatron-cluster/user/hive/warehouse/realty.db/apartment_rent'
+TBLPROPERTIES (
+  'skip.header.line.count'='1', 
+  'transient_lastDdlTime'='1547165218')
+
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201101/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201101);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201102/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201102);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201103/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201103);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201104/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201104);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201105/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201105);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201106/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201106);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201107/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201107);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201108/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201108);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201109/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201109);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201110/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201110);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201111/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201111);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201112/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201112);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201201/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201201);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201202/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201202);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201203/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201203);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201204/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201204);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201205/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201205);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201206/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201206);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201207/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201207);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201208/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201208);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201209/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201209);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201210/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201210);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201211/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201211);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201212/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201212);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201301/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201301);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201302/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201302);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201303/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201303);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201304/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201304);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201305/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201305);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201306/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201306);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201307/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201307);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201308/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201308);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201309/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201309);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201310/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201310);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201311/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201311);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201312/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201312);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201401/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201401);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201402/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201402);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201403/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201403);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201404/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201404);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201405/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201405);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201406/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201406);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201407/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201407);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201408/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201408);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201409/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201409);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201410/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201410);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201411/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201411);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201412/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201412);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201501/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201501);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201502/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201502);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201503/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201503);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201504/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201504);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201505/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201505);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201506/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201506);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201507/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201507);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201508/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201508);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201509/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201509);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201510/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201510);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201511/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201511);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201512/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201512);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201601/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201601);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201602/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201602);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201603/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201603);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201604/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201604);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201605/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201605);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201606/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201606);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201607/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201607);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201608/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201608);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201609/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201609);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201610/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201610);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201611/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201611);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201612/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201612);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201701/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201701);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201702/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201702);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201703/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201703);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201704/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201704);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201705/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201705);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201706/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201706);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201707/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201707);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201708/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201708);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201709/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201709);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201710/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201710);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201711/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201711);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201712/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201712);
+
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201801/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201801);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201802/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201802);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201803/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201803);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201804/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201804);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201805/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201805);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201806/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201806);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201807/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201807);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201808/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201808);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201809/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201809);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201810/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201810);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201811/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201811);
+LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201812/apartment_rent.csv' INTO TABLE realty.apartment_rent PARTITION(trade_ym=201812);
