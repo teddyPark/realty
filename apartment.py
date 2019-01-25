@@ -159,7 +159,7 @@ if __name__ == "__main__":
        sil_trade.to_csv('apartment_trade.csv', sep=',', encoding='utf-8', index=False)
     elif saveType=="hdfs":
        client_hdfs = InsecureClient(hdfsNamenode)
-       with client_hdfs.write(hdfsBasePath+m+'/apartment_trade.csv', encoding='utf-8') as writer:
+       with client_hdfs.write(hdfsBasePath+m+'/apartment_trade.csv', encoding='utf-8',overwrite=True) as writer:
            sil_trade.to_csv(writer, sep=',', index=False)
 
     # collect lent data
@@ -183,7 +183,7 @@ if __name__ == "__main__":
        sil_rent.to_csv('apartment_rent.csv', sep=',', encoding='utf-8', index=False)
     elif saveType=="hdfs":
        client_hdfs = InsecureClient(hdfsNamenode)
-       with client_hdfs.write(hdfsBasePath+m+'/apartment_rent.csv', encoding='utf-8') as writer:
+       with client_hdfs.write(hdfsBasePath+m+'/apartment_rent.csv', encoding='utf-8',overwrite=True) as writer:
            sil_rent.to_csv(writer, sep=',', index=False)
 
     # terminate program
