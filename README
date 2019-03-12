@@ -303,7 +303,7 @@ CREATE TABLE `apartment_trade`(
   `jibun` string, 
   `apart_nm` string, 
   `apart_floor` string, 
-  `apart_size` string)
+  `apart_size` DOUBLE)
 COMMENT 'Data about apartment trade history'
 PARTITIONED BY ( 
   `trade_ym` string)
@@ -337,7 +337,7 @@ CREATE TABLE `apartment_rent`(
   `jibun` string, 
   `apart_nm` string, 
   `apart_floor` string, 
-  `apart_size` string)
+  `apart_size` DOUBLE)
 COMMENT 'Data about apartment rent history'
 PARTITIONED BY ( 
   `trade_ym` string)
