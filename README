@@ -286,3 +286,69 @@ LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201809/apa
 LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201810/apartment_rent.csv' INTO TABLE realty.raw_apartment_rent PARTITION(trade_ym=201810);
 LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201811/apartment_rent.csv' INTO TABLE realty.raw_apartment_rent PARTITION(trade_ym=201811);
 LOAD DATA INPATH 'hdfs://metatron-cluster/user/metatron/datain/realty/201812/apartment_rent.csv' INTO TABLE realty.raw_apartment_rent PARTITION(trade_ym=201812);
+
+CREATE TABLE `apartment_trade`(
+  `jicode` string, 
+  `price` DECIMAL, 
+  `build_year` string, 
+  `trade_year` string, 
+  `trade_month` string, 
+  `trade_day` string, 
+  `street_addr_1` string, 
+  `street_addr_2` string, 
+  `street_addr_3` string, 
+  `dong_addr_1` string, 
+  `dong_addr_2` string, 
+  `dong_addr_3` string, 
+  `jibun` string, 
+  `apart_nm` string, 
+  `apart_floor` string, 
+  `apart_size` string)
+COMMENT 'Data about apartment trade history'
+PARTITIONED BY ( 
+  `trade_ym` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
+WITH SERDEPROPERTIES ( 
+  'field.delim'=',',
+  'quoteChar'='\"',
+  'serialization.format'=',') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+;
+
+
+CREATE TABLE `apartment_rent`(
+  `jicode` string, 
+  `deposit` DECIMAL, 
+  `monthlypay` BIGINT, 
+  `build_year` string,
+  `trade_year` string,
+  `trade_month` string, 
+  `trade_day` string, 
+  `street_addr_1` string, 
+  `street_addr_2` string, 
+  `street_addr_3` string, 
+  `dong_addr_1` string, 
+  `dong_addr_2` string, 
+  `dong_addr_3` string, 
+  `jibun` string, 
+  `apart_nm` string, 
+  `apart_floor` string, 
+  `apart_size` string)
+COMMENT 'Data about apartment rent history'
+PARTITIONED BY ( 
+  `trade_ym` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
+WITH SERDEPROPERTIES ( 
+  'field.delim'=',',
+  'quoteChar'='\"',
+  'serialization.format'=',') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+; 
