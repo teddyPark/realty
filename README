@@ -297,13 +297,17 @@ CREATE TABLE `apartment_trade`(
   `street_addr_1` string, 
   `street_addr_2` string, 
   `street_addr_3` string, 
+  `street_addr` string, 
   `dong_addr_1` string, 
   `dong_addr_2` string, 
   `dong_addr_3` string, 
+  `dong_addr` string, 
   `jibun` string, 
   `apart_nm` string, 
   `apart_floor` string, 
-  `apart_size` DOUBLE)
+  `apart_size` DOUBLE,
+  `latitude` string,
+  `longitude` string )
 COMMENT 'Data about apartment trade history'
 PARTITIONED BY ( 
   `trade_ym` string)
@@ -331,13 +335,17 @@ CREATE TABLE `apartment_rent`(
   `street_addr_1` string, 
   `street_addr_2` string, 
   `street_addr_3` string, 
+  `street_addr` string, 
   `dong_addr_1` string, 
   `dong_addr_2` string, 
   `dong_addr_3` string, 
+  `dong_addr` string, 
   `jibun` string, 
   `apart_nm` string, 
   `apart_floor` string, 
-  `apart_size` DOUBLE)
+  `apart_size` DOUBLE,
+  `latitude` string,
+  `longitude` string )
 COMMENT 'Data about apartment rent history'
 PARTITIONED BY ( 
   `trade_ym` string)
